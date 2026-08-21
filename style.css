@@ -1501,3 +1501,46 @@ body {
   font-size: 0.82rem; font-weight: 700; text-align: center; color: var(--ink);
 }
 .mobile-card .card-caption .accent { color: var(--brand); }
+
+/* =========================================================
+   ======  HERO LAYOUT FIX (image in left column)  ========
+   ========================================================= */
+/* Image now lives inside .hero-left — remove the fragile negative-margin
+   overlap hack and let it flow naturally, filling the left column. */
+.hero-instructors {
+  flex: initial;
+  width: 100%;
+  max-width: 34rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+.hero-instructors img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px -24px rgba(20, 18, 26, 0.4);
+}
+@media (min-width: 768px) {
+  .hero-instructors { margin-top: 1.75rem; max-width: 100%; margin-left: 0; }
+  .hero-instructors img { height: auto; }
+  /* keep the two hero columns aligned to the top */
+  .hero-top { align-items: flex-start; }
+  .hero-right { margin-top: 5rem; }
+}
+
+/* Primary hero CTA (green = action, matches the form button) */
+.hero-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 700; font-size: 1rem;
+  color: #fff; background: var(--cta, #16a34a);
+  box-shadow: 0 12px 26px -10px rgba(22, 163, 74, 0.55);
+  transition: background 0.15s, transform 0.12s;
+}
+.hero-cta:hover { background: var(--cta-dark, #15803d); transform: translateY(-2px); }
+@media (max-width: 767px) { .hero-cta { display: flex; width: 100%; } }
