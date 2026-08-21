@@ -1544,3 +1544,29 @@ body {
 }
 .hero-cta:hover { background: var(--cta-dark, #15803d); transform: translateY(-2px); }
 @media (max-width: 767px) { .hero-cta { display: flex; width: 100%; } }
+
+/* =========================================================
+   ============  STICKY TOP BAR (announce + header)  =======
+   ========================================================= */
+/* Sticky needs no scroll-clipping ancestor; clip stops sideways
+   scroll like hidden but (unlike hidden) keeps sticky working. */
+body { overflow-x: clip; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+
+/* Header is now a normal block inside the sticky bar (not fixed) */
+.site-header {
+  position: static;
+  top: auto;
+  background: #ffffff;               /* fully opaque — no image bleed-through */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 6px 18px -14px rgba(20, 18, 26, 0.5);
+}
+
+/* The hero no longer needs to clear a fixed header */
+.hero { margin-top: 0; padding-top: 1.5rem; }
